@@ -95,7 +95,7 @@ i {
 .sky {
   object-fit: cover;
   position: absolute;
-  top: -30vh;
+  top: 0vh;
 }
 
 .mountain {
@@ -105,7 +105,7 @@ i {
 
 .person {
   position: absolute;
-  top: 80vh;
+  top: 70vh;
   height: 100vh;
   background: url("assets/frontperson.png"),
     linear-gradient(transparent, #0b1d26);
@@ -430,12 +430,54 @@ footer {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1200px){
+  .sky {
+    object-fit: cover;
+    position: absolute;
+    top: 0vh;
+  }
 
+  .mountain {
+    object-fit: cover;
+    position: absolute;
+    top: 40vh;
+  }
+
+  .person {
+    position: absolute;
+    top: 50vh;
+    height: 90vh;
+    background: url("assets/frontperson.png"),
+      linear-gradient(transparent, #0b1d26);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .hr-lines{
+    margin-left: 20px;
+  }
+  .hero-head{
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .content-header{
+    margin-right: 0;
+  }
+
+  .section-heading{
+    align-items: center;
+    margin-left: 2rem;
+  }
 }
 
 /* mobile (medium, portrait tablet) size mediaquery */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+  .hero-head{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
   .scroll-indicator {
     margin-left: auto;
     margin-right: auto;
@@ -479,6 +521,11 @@ footer {
   }
 
   #section2 {
+    margin-top: 30vh;
+    margin-bottom: 10vh;
+  }
+
+  footer{
     margin-top: 20vh;
   }
 
@@ -489,18 +536,20 @@ footer {
     object-fit: cover;
     position: absolute;
     top: 0vh;
+    height: 50vh;
   }
 
   .mountain {
     object-fit: cover;
     position: absolute;
-    top: 20vh;
+    top: 25vh;
+    height: 70vh;
   }
 
   .person {
     position: absolute;
-    top: 30vh;
-    height: 90vh;
+    top: 45vh;
+    height:70vh;
     background: url("assets/frontperson.png"),
       linear-gradient(transparent, #0b1d26);
     background-repeat: no-repeat;
@@ -541,6 +590,8 @@ footer {
     line-height: 1;
   }
 }
+
+/* animations */
 
 @keyframes scrolldown {
   0% {
