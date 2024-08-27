@@ -1,0 +1,532 @@
+/* setting the whole page to have white fonts */
+* {
+  font-size: 18px;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* makes sure that the whole page doesn't overflow, also gets rid of default html margins */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #0b1d26;
+  position: absolute;
+  width: 100vw;
+}
+
+.questrial {
+  font-family: "Questrial", sans-serif;
+  font-weight: bold;
+}
+
+.light {
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+.chronicle {
+  font-family: "Chronicle Display", sans-serif;
+}
+/* mainly for yellow fonts */
+.yellow {
+  color: #fbd784;
+}
+
+.margin-y-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 1st section, hero section */
+
+/* navbar */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  margin-top: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.big-navbar {
+  display: block;
+}
+
+.small-navbar {
+  display: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.logo {
+  margin-top: 1rem;
+  font-size: 32px;
+}
+
+i {
+  font-size: 32px;
+}
+
+.account {
+  margin-top: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* background */
+.sky {
+  object-fit: cover;
+  position: absolute;
+  top: -30vh;
+}
+
+.mountain {
+  position: absolute;
+  top: 50vh;
+}
+
+.person {
+  position: absolute;
+  top: 80vh;
+  height: 100vh;
+  background: url("assets/frontperson.png"),
+    linear-gradient(transparent, #0b1d26);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* darkening the whole page a tad bit */
+.darken-bg {
+  position: fixed;
+  top: 0;
+  background-color: rgb(11, 29, 38);
+  opacity: 40%;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+/* subclass for everything that needs 100 vw width */
+.fit-screen {
+  width: 100vw;
+}
+
+.fit-height {
+  height: 100vh;
+}
+/* for everything that needs to be on top */
+.z-top {
+  z-index: 10;
+}
+
+/* for everything that needs to be behind (not used yet) */
+.behind {
+  z-index: 0;
+}
+
+/* the container for the hero section */
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* for everything that needs relative positioning */
+.relative {
+  position: relative;
+}
+
+.hero-text {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+  z-index: 15;
+  margin-right: 5rem;
+  margin-left: 1rem;
+}
+
+.socials {
+  display: flex;
+  text-wrap: nowrap;
+  transform: rotate(90deg);
+  align-items: center;
+  gap: 1em;
+}
+
+/* vertically aligning all the elements in the hero section. */
+.hero-item-vertical-align {
+  height: 100%;
+}
+
+/* the line befoe the writing "a hiking guide" */
+.hr-lines:before {
+  content: " ";
+  display: block;
+  height: 2px;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #fbd784;
+}
+
+.hr-lines {
+  position: relative;
+  /*  new lines  */
+  max-width: 400px;
+  margin-left: 150px;
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+/* hero section heading */
+.hero-head {
+  box-sizing: border-box;
+  font-size: 4rem;
+  margin-right: 20%;
+  margin-left: 11%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 100;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .hero-head {
+    font-size: 2rem;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+
+/* heading alignment */
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* the "scroll down" part */
+.scroll-indicator {
+  margin-left: 8rem;
+  font-weight: bold;
+  position: relative;
+  animation: scrolldown 1s ease alternate infinite;
+  cursor: pointer;
+}
+
+.fa-arrow-down {
+  font-weight: lighter;
+  font-size: 18px;
+  margin-left: 0.5rem;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* part which specifies which section of the page the user is at */
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+
+.sections li {
+  transition: all 0.5s ease;
+  border-right: 3px rgba(128, 128, 128, 0.5) solid;
+}
+
+.sections li:hover {
+  border-right: 3px white solid;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Questrial", sans-serif;
+  font-weight: bold;
+}
+
+.sections li.active {
+  border-right: 3px white solid;
+}
+
+/* main content section */
+
+/* linear gradient from transparent to the real background-color */
+.dark-bg-grad {
+  height: 100vh;
+  position: relative;
+  top: 10vh;
+  background: linear-gradient(transparent 0%, #0b1d26 30%);
+  z-index: 5;
+  margin-bottom: 10vh;
+}
+
+.dark-bg {
+  background: #0b1d26;
+  z-index: 5;
+  position: relative;
+}
+
+.content-section {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 0vh;
+  display: flex;
+  gap: 2rem;
+}
+
+.left {
+  flex-direction: row;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.section-content {
+  width: 60%;
+}
+
+.yellow-line {
+  display: block;
+  height: 2px;
+  width: 50px;
+  border-top: 1px #fbd784 solid;
+  background-color: #fbd784;
+}
+
+.section-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  letter-spacing: 10px;
+  margin-left: 1rem;
+}
+
+.background-num {
+  font-size: 12rem;
+  opacity: 0.2;
+  position: relative;
+  font-weight: bolder;
+}
+
+.section-heading {
+  position: relative;
+  top: -7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 8rem;
+  line-height: 1.5;
+  gap: 0;
+}
+
+.content-header {
+  font-size: 3rem;
+  font-weight: 100;
+  margin-top: 1rem;
+  margin-right: 10rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.section-image {
+    width: 50%;
+    height: 80vh;
+}
+
+.image-of-section {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.read-more {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.read-more i {
+  font-size: 20px;
+}
+
+footer {
+  margin: 5vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.left-footer {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  letter-spacing: 2px;
+}
+
+.right-footer {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top-left-footer {
+  width: 50%;
+}
+
+.footer-heading {
+  font-size: 2rem;
+}
+
+.column-header {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.footer-column ul li:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+   .scroll-indicator{
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+  .logo {
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .hero-text {
+    margin: 0;
+  }
+  .hidden-small {
+    display: none;
+  }
+
+  nav {
+    align-items: center;
+    margin-right: 1rem;
+    margin-left: 0rem;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    margin-top: 1rem;
+    font-size: 32px;
+  }
+  .big-navbar {
+    display: none;
+  }
+
+  .small-navbar {
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  #section1{
+    top: -10vh;
+  }
+
+  #section2 {
+    margin-top: 20vh;
+  }
+
+  .socials {
+    display: none;
+  }
+  .sky {
+    object-fit: cover;
+    position: absolute;
+    top: 0vh;
+  }
+
+  .mountain {
+    object-fit: cover;
+    position: absolute;
+    top: 20vh;
+  }
+
+  .person {
+    position: absolute;
+    top: 30vh;
+    height: 90vh;
+    background: url("assets/frontperson.png"),
+      linear-gradient(transparent, #0b1d26);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .section-content {
+    width: 100%;
+    height: 50%;
+  }
+
+  .section-image {
+    width: 100%;
+    height: 50%;
+  }
+
+  .section-heading {
+    position: relative;
+    top: -7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 0rem;
+    line-height: 1.5;
+    gap: 0;
+  }
+
+  .content-header {
+    font-size: 2rem;
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+}
+
+@keyframes scrolldown {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 10px;
+  }
+}
